@@ -1,0 +1,58 @@
+<h1>Create Author</h1>
+<form [formGroup]="authorForm" (ngSubmit)="createAuthor(authorForm.value)">
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="name">
+      Author Name
+    </label>
+    <input id="name" class="form-control" formControlName="name" placeholder="Author Name">
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="authorForm.get('name').hasError('required') &&
+      authorForm.get('name').touched">
+    Name required
+  </div>
+
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="birthDate">
+      Author birth date
+    </label>
+    <input id="birthDate" type="date" class="form-control" formControlName="birthDate" placeholder="Author Birth Date">
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="authorForm.get('birthDate').hasError('required') &&
+    authorForm.get('birthDate').touched">
+    Date required
+  </div>
+
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="description">
+      Author Description
+    </label>
+    <input id="description" type="text" class="form-control" formControlName="description"
+      placeholder="Author Description">
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="authorForm.get('description').hasError('required') &&
+authorForm.get('description').touched">
+    Description required
+  </div>
+
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="image">
+      Author Image
+    </label>
+    <input id="image" type="url" class="form-control" formControlName="image" placeholder="Author Image">
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="authorForm.get('image').hasError('required') &&
+authorForm.get('image').touched">
+    Image required
+  </div>
+
+  <div class="row form-inline justify-content-center align-self-center">
+    <button type="submit" class="btn btn-primary" [disabled]="authorForm.invalid">Create</button>
+    <div class="divider"></div>
+    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+  </div>
+
+</form>

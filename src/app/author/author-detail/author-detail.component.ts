@@ -35,9 +35,9 @@ export class AuthorDetailComponent implements OnInit {
     } else { console.log(this.authorDetail.id); }
   }
 
-  strToDate(publishingdate: string): Date {
-    console.log(publishingdate);
-    const dateNoTime: string[] = publishingdate.split('T');
+  dateFixed(birthDate: Date): Date {
+    console.log(birthDate);
+    const dateNoTime: string[] = (birthDate + '').split('T');
     return new Date(dateNoTime[0]);
   }
 }

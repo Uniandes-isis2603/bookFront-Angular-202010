@@ -43,9 +43,9 @@ export class BookDetailComponent implements OnInit {
   }
 
 
-  strToDate(publishingdate: string): Date {
-    console.log(publishingdate);
-    const dateNoTime: string[] = publishingdate.split('T');
+  dateFixed(publishingDate: Date): Date {
+    console.log(publishingDate);
+    const dateNoTime: string[] = (publishingDate + '').split('T');
     return new Date(dateNoTime[0]);
   }
 
