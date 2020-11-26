@@ -14,7 +14,7 @@
         <dd>{{bookDetail.isbn}}</dd>
         <hr>
         <dt>Publishing Date</dt>
-        <dd>{{bookDetail.publishingdate }}</dd>
+        <dd>{{ dateFixed(bookDetail.publishingdate) | date:"longDate" }}</dd>
         <hr>
         <dt class="bold">Editorial</dt>
         <dd class="caption">{{bookDetail.editorial.name}}</dd>

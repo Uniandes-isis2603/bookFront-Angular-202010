@@ -12,7 +12,7 @@
                 <dt>Bio</dt>
                 <dd>{{authorDetail.description}}</dd>
                 <dt>BirthDay</dt>
-                <dd>{{ strToDate(authorDetail.birthDate) |date:"longDate"}}</dd>
+                <dd>{{ dateFixed(authorDetail.birthDate) | date:"longDate" }}</dd>
               </dl>
             </div>
           </div>

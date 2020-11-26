@@ -33,4 +33,13 @@ export class AuthorService {
   getAuthorDetail(authorId): Observable<AuthorDetail> {
     return this.http.get<AuthorDetail>(`${this.apiUrl}/${authorId}`);
   }
+
+  /**
+   * Creates an author
+   * @param author The new author
+   * @returns The confirmation that the author was created
+   */
+  createAuthor(author): Observable<Author> {
+    return this.http.post<Author>(this.apiUrl, author);
+  }
 }

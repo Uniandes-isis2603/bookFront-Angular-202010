@@ -5,7 +5,7 @@
     <label for="name">
       Book Name
     </label>
-    <input novalidate id="name" class="form-control" formControlName="name" placeholder="Book Name">
+    <input id="name" class="form-control" formControlName="name" placeholder="Book Name">
   </div>
   <div class="alert alert-danger alert-dismissible fade show" *ngIf="bookForm.get('name').hasError('required') &&
       bookForm.get('name').touched">
@@ -13,41 +13,38 @@
   </div>
 
 
+  <div class="col-md-6">
+    <div class="row">
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="authors">
+          Author:
+        </label>
+        <select class="form-control" id="authors" rows="3" formControlName="authors">
+          <option *ngFor="let e of allAuthors" value={{e.name}}>{{e.name}}</option>
+        </select>
+      </div>
 
-    <div class="col-md-6">
-
-        <div class="row">
-          <div class="form-group mx-sm-3 mb-2">
-            <label for="authors">
-              Author:
-            </label>
-              <select class="form-control" id="authors"
-              rows="3"
-              formControlName="authors">
-                 <option *ngFor="let e of allAuthors" value={{e.name}}>{{e.name}}</option>
-
-               </select>
-            </div>
-
-            <button type="button" (click)="addAuthor()" class="btn btn-primary">+<span class="fa fa-plus"></span></button>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 text-center" >
-                <table class="table table-striped">
-                    <tbody>
-                        <tr *ngFor = "let j of authors" >
-                            <td> <dd>{{j.name}}</dd></td>
-                    <td id="author-delete">
-                        <button class="btn btn-danger" (click)="removeAuthor(j)">-<span class="fa fa-trash"></span></button>
-                    </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+      <button type="button" (click)="addAuthor()" class="btn btn-primary">+<span class="fa fa-plus"></span></button>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 text-center">
+        <table class="table table-striped">
+          <tbody>
+            <tr *ngFor="let j of authors">
+              <td>
+                <dd>{{j.name}}</dd>
+              </td>
+              <td id="author-delete">
+                <button class="btn btn-danger" (click)="removeAuthor(j)">-<span class="fa fa-trash"></span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
 
   <div class="alert alert-danger alert-dismissible fade show" *ngIf="bookForm.get('authors').hasError('required') &&
